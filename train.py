@@ -255,7 +255,7 @@ def main():
 
     # Define datasets
     datasets = {
-        "Raw_matrix": [adata_train.layers['counts'], adata_test.layers['counts']]
+        "Raw_matrix": [adata_train.layers['counts'], adata_test.layers['counts']],
         "Custom_matrix": [adata_train.layers['counts_processed'], adata_test.layers['counts_processed']]
     }
 
@@ -264,10 +264,9 @@ def main():
 
     # Model training for each dataset
     for dataset_name, loader in datasets_loader.items():
-    '''
-        Training for each dataset and latent size, results (training curves and summary table)
-        are saved in directory output_dir/dataset_name
-    '''
+        """ Training for each dataset and latent size, results (training curves
+         and summary table) are saved in directory output_dir/dataset_name """
+
         print(f"Training on dataset: {dataset_name}")
         train_loader, test_loader = loader
         dataset_output = os.path.join(args.output_dir, dataset_name)
